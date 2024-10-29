@@ -535,14 +535,14 @@ body {
   .section-title {
     font-size: 2.5rem;
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 70px;
     position: relative;
   }
   
   .section-title::after {
     content: '';
     position: absolute;
-    bottom: -15px;
+    bottom: -5px;
     left: 50%;
     transform: translateX(-50%);
     width: 100px;
@@ -565,6 +565,7 @@ body {
   .about-image img {
     width: 100%;
     border-radius: 15px;
+    margin-bottom: 29rem;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   }
   
@@ -593,7 +594,7 @@ body {
   
   .features-list {
     list-style: none;
-    margin: 20px 0;
+    margin: 40px 0;
     padding: 0;
   }
   
@@ -612,7 +613,7 @@ body {
   
   .stat-item {
     background: white;
-    padding: 20px;
+    padding: 10px 45px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease;
@@ -642,6 +643,11 @@ body {
     .about-image {
       margin-bottom: 30px;
     }
+    .about-image img{
+        width: 100%;
+        border-radius: 15px;
+        margin-bottom: 2rem;
+    }
     
     .class-stats {
       flex-wrap: wrap;
@@ -650,6 +656,6 @@ body {
     
     .stat-item {
       flex: 1;
-      min-width: 120px;
+      min-width: 130px;
     }
   }
