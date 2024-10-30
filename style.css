@@ -659,3 +659,57 @@ body {
       min-width: 130px;
     }
   }
+
+/* Hover Effects */
+.achievement-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.achievement-card:hover .card-overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+.achievement-card:hover .overlay-content {
+  transform: translateY(0);
+}
+
+.achievement-card:hover .card-image img {
+  transform: scale(1.1);
+}
+
+.achievement-card:hover .card-badge {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Modern Animations */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .achievements-grid {
+    padding: 1rem;
+    gap: 2rem;
+  }
+  
+  .achievement-card {
+    width: 100%;
+    max-width: 340px;
+    margin-bottom: 1rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+}
