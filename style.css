@@ -245,9 +245,10 @@ body {
 
 .scroll-content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, 300px);
     gap: 30px;
     padding: 20px 0px;
+    justify-content: center;
 }
 
 .profile-card {
@@ -261,6 +262,11 @@ body {
     position: relative;
     overflow: hidden;
     animation: 3s ease-out 0s 1 normal backwards running cardAppear;
+    width: 300px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .profile-card:nth-child(n) {
@@ -269,19 +275,22 @@ body {
 
 .profile-card .img-container {
     position: relative;
-    width: 150px;
-    height: 150px;
-    margin: 0px auto 10px;
+    width: 150px;  /* Fixed width */
+    height: 150px; /* Fixed height for 1:1 ratio */
+    margin: 0 auto 20px;
     border-radius: 50%;
     overflow: hidden;
     transform-style: preserve-3d;
     transition: 1s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Ensure container maintains aspect ratio */
+    flex-shrink: 0;
 }
 
 .profile-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: 150px;      /* Exact width */
+    height: 150px;     /* Exact height */
+    object-fit: cover; /* Ensures image covers the area without distortion */
+    object-position: center; /* Centers the image */
     border-radius: 50%;
     border: 4px solid rgb(244, 244, 244);
     transform-origin: center center;
@@ -291,12 +300,17 @@ body {
 
 .profile-card:hover .img-container {
     transform: translateY(-10px) rotateY(360deg);
+    width: 150px;  /* Maintain width during animation */
+    height: 150px; /* Maintain height during animation */
 }
 
 .profile-card:hover img {
     border: 6px solid rgb(255, 94, 87);
     transform: scale(1.05);
     filter: brightness(1.1) contrast(1.1);
+    /* Ensure image stays 150x150 even with scale */
+    width: 150px;
+    height: 150px;
 }
 
 .profile-card:hover .img-container::after {
@@ -314,10 +328,10 @@ body {
 }
 
 .profile-card h3 {
-    font-size: 1rem;
-    margin-bottom: 10px;
-    text-shadow: rgba(128, 128, 128, 0.686) 1px 1px 3px;
-    color: rgb(52, 52, 52);
+    font-size: 1.2rem;
+    margin: 15px 0;
+    text-align: center;
+    width: 100%;
 }
 
 .profile-card:hover h3 {
@@ -326,8 +340,9 @@ body {
 }
 
 .profile-card p {
-    color: rgb(102, 102, 102);
-    margin-bottom: 15px;
+    text-align: center;
+    margin: 10px 0;
+    width: 100%;
 }
 
 @keyframes cardAppear {
@@ -384,7 +399,10 @@ body {
 }
 
 .social-links {
-    margin-top: 20px;
+    margin-top: auto;
+    padding: 20px 0;
+    width: 100%;
+    text-align: center;
 }
 
 .social-links a {
@@ -514,11 +532,23 @@ body {
 
     .scroll-content {
         grid-template-columns: 1fr;
+        padding: 20px;
     }
-
     .profile-card {
+        width: 100%;
         max-width: 300px;
-        margin: 0px auto;
+        margin: 0 auto;
+        height: auto;
+        min-height: 400px;
+    }
+    .profile-card img{
+        width: 150px;
+        height: 150px;
+    }
+    .profile-card .img-container {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 20px;
     }
 
     .header-section {
@@ -868,3 +898,282 @@ body {
   }
 }
 
+/* Contact */
+.contact-section {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #f6f9fc 0%, #f1f4f8 100%);
+    overflow: hidden;
+}
+
+.contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+    color: #2d3436;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(90deg, #00c6fb 0%, #005bea 100%);
+}
+
+.contact-wrapper {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.info-card {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.info-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    color: #2d3436;
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 30px;
+}
+
+.info-item i {
+    font-size: 24px;
+    color: #005bea;
+    margin-right: 20px;
+    padding: 15px;
+    background: #f1f4f8;
+    border-radius: 50%;
+}
+
+.info-item h4 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    color: #2d3436;
+}
+
+.info-item p {
+    color: #636e72;
+}
+
+.social-links-icon {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.social-icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    color: white;
+    font-size: 20px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.social-icon::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px 15px;
+    background: #2d3436;
+    color: white;
+    font-size: 12px;
+    border-radius: 5px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover::before {
+    opacity: 1;
+    visibility: visible;
+    bottom: 120%;
+}
+
+.social-icon:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0px 15px rgba(0,0,0,0.2);
+}
+
+.contact-form {
+    flex: 1;
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+
+
+.form-group {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-bottom: 2px solid #dfe6e9;
+    background: none;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.form-group label {
+    position: absolute;
+    top: 15px;
+    left: 5px;
+    font-size: 15px;
+    color: #636e72;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    background: white;
+    padding: 0 5px;
+}
+
+.form-group input:focus ~ label,
+.form-group textarea:focus ~ label,
+.form-group input:not(:placeholder-shown) ~ label,
+.form-group textarea:not(:placeholder-shown) ~ label {
+    top: -12px;
+    font-size: 12px;
+    color: #005bea;
+}
+
+.focus-border {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #005bea;
+    transition: 0.4s;
+}
+
+.form-group input:focus ~ .focus-border,
+.form-group textarea:focus ~ .focus-border {
+    width: 100%;
+}
+
+
+  .form-group input:focus ~ .focus-border,
+  .form-group textarea:focus ~ .focus-border {
+    transform: scaleX(1);
+  }
+  
+  .submit-btn {
+    background: linear-gradient(90deg, #00c6fb 0%, #005bea 100%);
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .submit-btn:hover {
+    background: linear-gradient(90deg, #005bea 0%, #00c6fb 100%);
+  }
+  
+  .submit-btn i {
+    margin-left: 10px;
+    font-size: 20px;
+  }
+  
+  /* Map Styles */
+  .map-section {
+    margin-top: 60px;
+  }
+  
+  .map-container {
+    height: 400px;
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  }
+
+    iframe {
+    height: 400px;
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .contact-wrapper {
+      flex-direction: column;
+    }
+
+    .social-icon {
+    width: 45px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    color: white;
+    font-size: 20px;
+    transition: all 0.3s ease;
+    position: relative;
+    }
+    
+    .contact-form {
+      margin-top: 30px;
+    }
+}
+  
+  @media (max-width: 480px) {
+    .contact-container {
+      padding: 0 15px;
+    }
+
+    .social-icon {
+    width: 45px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    color: white;
+    font-size: 20px;
+    transition: all 0.3s ease;
+    position: relative;
+    }
+    
+    .info-card {
+      padding: 20px;
+    }
+    
+    .contact-form {
+      padding: 20px;
+    }
+}
