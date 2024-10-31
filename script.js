@@ -85,3 +85,73 @@ achievementCards.forEach(card => {
   card.style.transition = 'all 0.6s ease';
   achievementsObserver.observe(card);
 });
+
+// Inisialisasi peta
+// Inisialisasi peta
+function initMap() {
+  const smkYadika = { lat: -7.0245, lng: 107.5230 }; // Ganti dengan koordinat yang tepat
+  const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 15,
+    center: smkYadika,
+  });
+  const marker = new google.maps.Marker({
+    position: smkYadika,
+    map: map,
+  });
+}
+
+// Form submission
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  // Di sini Anda bisa menambahkan logika untuk mengirim data formulir
+  alert('Terima kasih! Pesan Anda telah terkirim.');
+  this.reset();
+});
+
+// Animasi smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    document.querySelector(this.getAttribute('href')).scrollIntoView({
+      behavior: 'smooth'
+    });
+  });
+});
+
+// Tambahkan ini ke JavaScript yang sudah ada
+
+// Animasi smooth reveal saat scroll
+window.addEventListener('scroll', revealOnScroll);
+
+function revealOnScroll() {
+  var reveals = document.querySelectorAll('.info-item, .form-group, .social-icon');
+  
+  for(var i = 0; i < reveals.length; i++) {
+    var windowHeight = window.innerHeight;
+    var revealTop = reveals[i].getBoundingClientRect().top;
+    var revealPoint = 150;
+    
+    if(revealTop < windowHeight - revealPoint) {
+      reveals[i].classList.add('active');
+    } else {
+      reveals[i].classList.remove('active');
+    }
+  }
+}
+
+// Tambahkan class untuk animasi
+document.querySelectorAll('.info-item, .form-group, .social-icon').forEach(item => {
+  item.classList.add('reveal');
+});
+
+// Animasi label form
+document.querySelectorAll('.form-group input, .form-group textarea').forEach(input => {
+  input.addEventListener('focus', function() {
+    this.parentNode.classList.add('focus');
+  });
+  input.addEventListener('blur', function() {
+    if(this.value === '') {
+      this.parentNode.classList.remove('focus');
+    }
+  });
+});
