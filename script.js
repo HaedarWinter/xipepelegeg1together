@@ -329,7 +329,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function startGame() {
       isGameActive = true;
-      timeLeft = 60;
+      timeLeft = 15;
       startTime = Date.now();
       totalCorrectChars = 0;
       totalChars = 0;
