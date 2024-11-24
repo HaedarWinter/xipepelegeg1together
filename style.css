@@ -1365,7 +1365,100 @@ iframe:hover{
     padding: 20px;
   }
 }
+@media (max-width: 480px) {
 
+  /* Navbar */
+  .navbar {
+    padding: 10px 0;
+    background-color: rgba(51, 51, 51, 0.95);
+  }
+
+  .brand-logo {
+    font-size: 1.2rem; /* Lebih kecil agar sesuai dengan layar kecil */
+  }
+
+  .navbar.scrolled .burger {
+    color: black;
+  }
+
+  .navbar.scrolled .brand-logo {
+    color: rgb(0, 0, 0);
+  }
+
+  /* Nav Links */
+  .nav-links {
+    position: fixed;
+    top: -100%;
+    right: 0;
+    width: 100%; /* Ubah menjadi lebar penuh di layar kecil */
+    height: 100%; /* Agar menutupi seluruh layar */
+    border-radius: 0.1rem;
+    background-color: rgb(51, 52, 52);
+    padding: 30px 20px; /* Atur padding lebih kecil */
+    flex-direction: column;
+    transition: 0.7s;
+  }
+
+  .nav-links.active {
+    top: 70px;
+  }
+
+  .navbar.scrolled .nav-links a {
+    color: white;
+  }
+
+  .nav-links li {
+    margin: 15px 0;
+    font-size: 1.1rem; /* Ukuran font lebih kecil */
+  }
+
+  /* Burger Menu */
+  .burger {
+    display: block;
+    cursor: pointer;
+  }
+
+  /* Header Section */
+  .header-section h1 {
+    font-size: 1.8rem; /* Ukuran font lebih kecil */
+  }
+
+  .header-section p {
+    font-size: 1rem; /* Ukuran font lebih kecil */
+  }
+
+  /* Profile Card */
+  .profile-card {
+    width: 90%; /* Lebar lebih kecil */
+    max-width: 300px;
+    margin: 0 auto;
+    height: auto;
+    min-height: 350px; /* Sesuaikan tinggi minimal */
+  }
+
+  .profile-card img {
+    width: 120px; /* Gambar lebih kecil */
+    height: 120px;
+  }
+
+  .profile-card .img-container {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 20px;
+  }
+
+  /* Header Section Background */
+  .header-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("img/weare.png") center center / cover no-repeat;
+    background-size: cover; /* Pastikan gambar tetap ter-cover */
+  }
+
+  /* Scroll Content */
+  .scroll-content {
+    grid-template-columns: 1fr; /* Satu kolom */
+    padding: 10px; /* Kurangi padding */
+  }
+}
 .typing-game {
   padding: 4rem 1rem;
   background-color: #f3f4f6;
