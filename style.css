@@ -88,7 +88,6 @@ body {
 }
 .satu:hover{
   transition: 1s ease-in-out;
-  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url("img/logos.png") center center / cover no-repeat;
 }
 
 .logostext{
@@ -656,7 +655,19 @@ body {
 .about-image img {
   width: 100%;
   border-radius: 15px;
-  margin-bottom: 29rem;
+  margin-bottom: 1.2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+.about-image h1 {
+  margin-bottom: 20px;
+  line-height: 1.6;
+  text-align: center;
+  color: #666;
+}
+#video {
+  width: 100%;
+  height: 350px;
+  border-radius: 15px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
@@ -680,6 +691,7 @@ body {
 .description p {
   margin-bottom: 15px;
   line-height: 1.6;
+  font-size: 20px;
   color: #666;
 }
 
@@ -717,7 +729,6 @@ body {
 .stat-item h4 {
   font-size: 1.8rem;
   color: #FF5E57;
-  margin-bottom: 5px;
 }
 
 .stat-item p {
@@ -1232,17 +1243,16 @@ i.fab.fa-github:hover {
   box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 
-iframe {
+#map {
   height: 400px;
   width: 100%;
   transition: all 0.5s ease-out;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
-iframe:hover{
+#map:hover{
   height: 400px;
   width: 100%;
-  padding: 29px;
   backdrop-filter: blur(10px);
   border-radius: 20px;
   color: rgb(26, 188, 156);
@@ -1366,15 +1376,29 @@ iframe:hover{
   }
 }
 @media (max-width: 480px) {
+  
+  /* Mengatur body agar tidak ada margin/padding yang menyebabkan overflow */
+  body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Menghilangkan scroll horizontal */
+  }
+
+  /* Pastikan konten utama tidak meluas melewati layar */
+  .container, .navbar, .scroll-content, .profile-card {
+    width: 100%; /* Agar lebar konten mengikuti lebar layar */
+    max-width: 100%; /* Membatasi lebar supaya tidak lebih lebar dari layar */
+    box-sizing: border-box; /* Agar padding dan margin tidak menyebabkan overflow */
+  }
 
   /* Navbar */
   .navbar {
-    padding: 10px 0;
+    padding: 10px 15px;
     background-color: rgba(51, 51, 51, 0.95);
   }
 
   .brand-logo {
-    font-size: 1.2rem; /* Lebih kecil agar sesuai dengan layar kecil */
+    font-size: 1.5rem;
   }
 
   .navbar.scrolled .burger {
@@ -1390,13 +1414,14 @@ iframe:hover{
     position: fixed;
     top: -100%;
     right: 0;
-    width: 100%; /* Ubah menjadi lebar penuh di layar kecil */
-    height: 100%; /* Agar menutupi seluruh layar */
+    width: 50%; /* Lebar menu navbar penuh */
+    height: 25%; /* Menu menutupi seluruh layar */
     border-radius: 0.1rem;
     background-color: rgb(51, 52, 52);
-    padding: 30px 20px; /* Atur padding lebih kecil */
+    padding: 30px 20px;
     flex-direction: column;
     transition: 0.7s;
+    box-sizing: border-box; /* Menghindari overflow */
   }
 
   .nav-links.active {
@@ -1409,10 +1434,10 @@ iframe:hover{
 
   .nav-links li {
     margin: 15px 0;
-    font-size: 1.1rem; /* Ukuran font lebih kecil */
+    font-size: 1.1rem; /* Ukuran font yang lebih kecil */
   }
 
-  /* Burger Menu */
+  /* Burger menu */
   .burger {
     display: block;
     cursor: pointer;
@@ -1420,24 +1445,25 @@ iframe:hover{
 
   /* Header Section */
   .header-section h1 {
-    font-size: 1.8rem; /* Ukuran font lebih kecil */
+    font-size: 50px; /* Ukuran font lebih kecil */
   }
 
   .header-section p {
-    font-size: 1rem; /* Ukuran font lebih kecil */
+    font-size: 1.5rem; /* Ukuran font lebih kecil */
   }
 
   /* Profile Card */
   .profile-card {
-    width: 90%; /* Lebar lebih kecil */
-    max-width: 300px;
+    width: 90%; /* Lebar lebih kecil agar tidak memenuhi layar */
+    max-width: 280px; /* Membatasi lebar maksimal */
     margin: 0 auto;
     height: auto;
-    min-height: 350px; /* Sesuaikan tinggi minimal */
+    min-height: 350px;
+    box-sizing: border-box; /* Menjaga margin dan padding tetap sesuai */
   }
 
   .profile-card img {
-    width: 120px; /* Gambar lebih kecil */
+    width: 120px; /* Mengatur ukuran gambar */
     height: 120px;
   }
 
@@ -1447,18 +1473,19 @@ iframe:hover{
     margin: 0 auto 20px;
   }
 
-  /* Header Section Background */
+  /* Background Header */
   .header-section {
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("img/weare.png") center center / cover no-repeat;
-    background-size: cover; /* Pastikan gambar tetap ter-cover */
+    background-size: cover;
   }
 
   /* Scroll Content */
   .scroll-content {
-    grid-template-columns: 1fr; /* Satu kolom */
-    padding: 10px; /* Kurangi padding */
+    grid-template-columns: 1fr; /* Pastikan hanya satu kolom */
+    box-sizing: border-box; /* Menghindari overflow */
   }
 }
+
 .typing-game {
   padding: 4rem 1rem;
   background-color: #f3f4f6;
