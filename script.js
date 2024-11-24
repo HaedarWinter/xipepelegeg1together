@@ -186,7 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Game state
   let currentQuote = '';
-  let timeLeft = 60;
+  let timeLeft = 15;
   let timer = null;
   let isGameActive = false;
   let startTime = null;
@@ -196,7 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Quotes array
   const quotes = [
-      "pemrograman.",
+      "pemrograman",
       "database",
       "algoritma",
       "frontend",
