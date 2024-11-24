@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="img/logos.png">
   <link rel="icon" href="logos.png">
@@ -808,6 +807,69 @@
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d480.96799377957996!2d107.53699989961405!3d-7.023965433590924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68ec301f639ecf%3A0x2f897766b8afae2a!2sJl.%20Bojong%20Koneng%20No.48%2C%20Cingcin%2C%20Kec.%20Soreang%2C%20Kabupaten%20Bandung%2C%20Jawa%20Barat%2040921!5e0!3m2!1sid!2sid!4v1730294233834!5m2!1sid!2sid" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="typing-game">
+  <div class="container">
+      <div class="game-header">
+          <h2 class="game-title">Tes Kecepatan Mengetik</h2>
+          <p class="game-subtitle">Tes kecepatan dan akurasi mengetik ente !</p>
+      </div>
+
+      <div class="game-card">
+          <div class="stats-container">
+              <div class="stat-box time">
+                  <p class="stat-label">Sisa Waktu</p>
+                  <p id="timer" class="stat-value">60 Detik</p>
+              </div>
+              <div class="stat-box wpm">
+                  <p class="stat-label">KPM</p>
+                  <p id="wpm" class="stat-value">0</p>
+              </div>
+              <div class="stat-box accuracy">
+                  <p class="stat-label">Akurasi</p>
+                  <p id="accuracy" class="stat-value">0%</p>
+              </div>
+          </div>
+          <div class="quote-display" id="quote">C!</div>
+          <div class="input-area">
+              <textarea
+                  id="input"
+                  class="typing-input"
+                  placeholder="Ketik sesuatu..."
+              ></textarea>
+          </div>
+
+          <div class="controls">
+              <button id="start-btn" class="btn btn-primary">
+                  <i class="fas fa-play"></i>
+                  Mulai Tes
+              </button>
+              <button id="reset-btn" class="btn btn-secondary">
+                  <i class="fas fa-redo"></i>
+                  Reset
+              </button>
+          </div>
+      </div>
+  </div>
+
+  <div id="results-modal" class="modal-overlay">
+      <div class="modal">
+          <h3 class="modal-title">Hasil Tes</h3>
+          <div class="modal-content">
+              <p class="result-item">
+                  Kata Per Menit: <span id="final-wpm" class="result-value">0</span>
+              </p>
+              <p class="result-item">
+                  Akurasi: <span id="final-accuracy" class="result-value">0%</span>
+              </p>
+              <p class="result-item">
+                  Kata Selesai: <span id="completed-quotes" class="result-value">0</span>
+              </p>
+          </div>
+          <button id="close-results" class="modal-btn">Coba Lagi</button>
+      </div>
   </div>
 </section>
           <!-- Footer Section -->
