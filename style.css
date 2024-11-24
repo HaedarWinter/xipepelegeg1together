@@ -15,7 +15,7 @@ span.satu {
 }
 
 body {
-  font-family: Poppins, sans-serif;
+  font-family: 'Poopins', sans-serif;
   line-height: 1.6;
   background-color: rgb(244, 244, 244);
   color: rgb(51, 51, 51);
@@ -412,6 +412,30 @@ body {
 
   100% {
       transform: translateY(0px);
+  }
+}
+@media (max-width: 480px) {
+  body {
+    font-size: 12px; /* Ukuran font lebih kecil */
+  }
+
+  .navbar {
+    flex-direction: column; /* Navbar menjadi vertikal */
+    align-items: flex-start; /* Perbaiki posisi jika navbar rata tengah */
+  }
+
+  .container {
+    padding: 5px; /* Kurangi padding untuk layar kecil */
+  }
+
+  img {
+    width: 100%; /* Gambar menyesuaikan lebar layar */
+    height: auto;
+  }
+
+  .card {
+    flex: 1 1 100%; /* 1 kartu per baris */
+    margin: 5px;
   }
 }
 
@@ -1176,15 +1200,19 @@ i.fab.fa-github:hover {
   background: linear-gradient(90deg, #00c6fb 0%, #005bea 100%);
   color: white;
   padding: 15px 30px;
+  margin-top: 2.2rem;
   border: none;
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.6s ease;
+  
 }
 
 .submit-btn:hover {
   background: linear-gradient(90deg, #005bea 0%, #00c6fb 100%);
+  transition: all 0.6s ease;
+  transform: translateX(-10px);
 }
 
 .submit-btn i {
@@ -1335,5 +1363,238 @@ iframe:hover{
 
   .contact-form {
     padding: 20px;
+  }
+}
+
+.typing-game {
+  padding: 4rem 1rem;
+  background-color: #f3f4f6;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0px auto;
+  padding: 0px 10px;
+}
+
+.game-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.game-title {
+  font-size: 2.5rem;
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+
+.game-subtitle {
+  color: #4b5563;
+}
+
+.game-card {
+  background: white;
+  border-radius: 0.5rem;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.stats-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.stat-box {
+  text-align: center;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.stat-box.time {
+  background-color: #eff6ff;
+}
+
+.stat-box.wpm {
+  background-color: #ecfdf5;
+}
+
+.stat-box.accuracy {
+  background-color: #f5f3ff;
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.stat-box.time .stat-label {
+  color: #2563eb;
+}
+
+.stat-box.wpm .stat-label {
+  color: #059669;
+}
+
+.stat-box.accuracy .stat-label {
+  color: #7c3aed;
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.stat-box.time .stat-value {
+  color: #1d4ed8;
+}
+
+.stat-box.wpm .stat-value {
+  color: #047857;
+}
+
+.stat-box.accuracy .stat-value {
+  color: #6d28d9;
+}
+
+.quote-display {
+  background-color: #f9fafb;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+  line-height: 1.75;
+  color: #374151;
+}
+
+.input-area {
+  margin-bottom: 1.5rem;
+}
+
+.typing-input {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  resize: vertical;
+  min-height: 100px;
+}
+
+.typing-input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.2s;
+}
+
+.btn-primary {
+  background-color: #2563eb;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #1d4ed8;
+}
+
+.btn-secondary {
+  background-color: #4b5563;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #374151;
+}
+
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  background: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  max-width: 28rem;
+  width: 90%;
+  margin: 1rem;
+}
+
+.modal-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+
+.modal-content {
+  margin-bottom: 1.5rem;
+}
+
+.result-item {
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+}
+
+.result-value {
+  font-weight: bold;
+}
+
+.result-value.wpm {
+  color: #059669;
+}
+
+.result-value.accuracy {
+  color: #7c3aed;
+}
+
+.modal-btn {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.modal-btn:hover {
+  background-color: #1d4ed8;
+}
+
+@media (max-width: 640px) {
+  .stats-container {
+      flex-direction: column;
+      gap: 1rem;
+  }
+
+  .game-title {
+      font-size: 2rem;
   }
 }
