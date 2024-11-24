@@ -1486,107 +1486,374 @@ i.fab.fa-github:hover {
   }
 }
 
-.typing-game {
-  padding: 4rem 1rem;
-  background-color: #f3f4f6;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* quiz */
+/* styles.css */
+/* Base styles */
+.quiz-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  width: 90%; /* Add width control for responsiveness */
 }
 
-.container {
-  max-width: 1400px;
-  margin: 0px auto;
-  padding: 0px 10px;
+.quiz-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.quiz-header h2 {
+  color: #333;
+  margin-bottom: 1rem;
+  font-size: 2rem; /* Base font size */
+}
+
+.quiz-header p {
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+.score-display {
+  font-size: 1.2rem;
+  color: #2c3e50;
+  margin-top: 1rem;
+}
+
+.question-container {
+  background-color: #f8f9fa;
+  padding: 2rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+#question-text {
+  font-size: 1.2rem;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.options-container {
+  display: grid;
+  gap: 1rem;
+}
+
+.option {
+  padding: 1rem;
+  border: 2px solid #e9ecef;
+  border-radius: 5px;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  text-align: left;
+  line-height: 1.4;
+}
+
+.option:hover {
+  background-color: #e9ecef;
+}
+
+.option.correct {
+  background-color: #28a745;
+  color: white;
+  border-color: #28a745;
+}
+
+.option.wrong {
+  background-color: #dc3545;
+  color: white;
+  border-color: #dc3545;
+}
+
+.quiz-footer {
+  text-align: center;
+}
+
+#next-btn, #restart-btn {
+  padding: 0.8rem 2rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  width: auto; /* Allow button to be responsive */
+}
+
+#next-btn:hover, #restart-btn:hover {
+  background-color: #0056b3;
+}
+
+#next-btn:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+/* Responsive Design - Large Tablets and Small Laptops */
+@media screen and (max-width: 1024px) {
+  .quiz-container {
+      width: 95%;
+      padding: 1.5rem;
+  }
+
+  .quiz-header h2 {
+      font-size: 1.8rem;
+  }
+}
+
+/* Responsive Design - Tablets */
+@media screen and (max-width: 768px) {
+  .quiz-container {
+      margin: 1.5rem auto;
+      padding: 1.25rem;
+  }
+
+  .quiz-header h2 {
+      font-size: 1.6rem;
+  }
+
+  .question-container {
+      padding: 1.5rem;
+  }
+
+  #question-text {
+      font-size: 1.1rem;
+  }
+
+  .option {
+      padding: 0.9rem;
+  }
+}
+
+/* Responsive Design - Large Phones */
+@media screen and (max-width: 576px) {
+  .quiz-container {
+      margin: 1rem auto;
+      padding: 1rem;
+      width: 98%;
+  }
+
+  .quiz-header h2 {
+      font-size: 1.4rem;
+  }
+
+  .quiz-header p {
+      font-size: 1rem;
+  }
+
+  .question-container {
+      padding: 1rem;
+  }
+
+  #question-text {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+  }
+
+  .option {
+      padding: 0.8rem;
+      font-size: 0.95rem;
+  }
+
+  #next-btn, #restart-btn {
+      padding: 0.7rem 1.5rem;
+      font-size: 0.95rem;
+      width: 100%; /* Full width on mobile */
+      max-width: 300px; /* Maximum width to maintain readability */
+  }
+}
+
+/* Responsive Design - Small Phones */
+@media screen and (max-width: 375px) {
+  .quiz-container {
+      margin: 0.5rem auto;
+      padding: 0.8rem;
+  }
+
+  .quiz-header h2 {
+      font-size: 1.2rem;
+  }
+
+  .question-container {
+      padding: 0.8rem;
+  }
+
+  .option {
+      padding: 0.7rem;
+      font-size: 0.9rem;
+  }
+
+  .score-display {
+      font-size: 1rem;
+  }
+}
+
+/* Touch Device Optimization */
+@media (hover: none) {
+  .option:hover {
+      background-color: white; /* Remove hover effect on touch devices */
+  }
+
+  .option:active {
+      background-color: #e9ecef; /* Add active state for touch */
+  }
+}
+
+/* Ensure proper height on mobile browsers */
+@supports (-webkit-touch-callout: none) {
+  .quiz-container {
+      min-height: -webkit-fill-available;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .option {
+      border-width: 3px;
+  }
+  
+  .quiz-container {
+      box-shadow: 0 0 0 2px #000;
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .option, #next-btn, #restart-btn {
+      transition: none;
+  }
+}
+
+/* Typing Game */
+.typing-game {
+  padding: 2rem 0;
+  background: #f5f5f5;
 }
 
 .game-header {
   text-align: center;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
 }
 
 .game-title {
   font-size: 2.5rem;
-  color: #1f2937;
-  margin-bottom: 1rem;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
 }
 
 .game-subtitle {
-  color: #4b5563;
+  color: #7f8c8d;
+  font-size: 1.1rem;
 }
 
 .game-card {
-  background: white;
-  border-radius: 0.5rem;
-  padding: 2rem;
+  background: #fff;
+  border-radius: 15px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.difficulty-selector {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.form-select {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 2px solid #ddd;
+  font-size: 1rem;
+  width: 200px;
+  background: #fff;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+.form-select:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+.progress {
+  height: 8px;
+  background: #eee;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: #4CAF50;
+  transition: width 0.3s ease, background-color 0.3s;
 }
 
 .stats-container {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+  text-align: center;
 }
 
 .stat-box {
-  text-align: center;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-}
-
-.stat-box.time {
-  background-color: #eff6ff;
-}
-
-.stat-box.wpm {
-  background-color: #ecfdf5;
-}
-
-.stat-box.accuracy {
-  background-color: #f5f3ff;
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 10px;
+  border: 2px solid #eee;
 }
 
 .stat-label {
-  font-size: 0.875rem;
-  font-weight: 600;
-  margin-bottom: 0.25rem;
-}
-
-.stat-box.time .stat-label {
-  color: #2563eb;
-}
-
-.stat-box.wpm .stat-label {
-  color: #059669;
-}
-
-.stat-box.accuracy .stat-label {
-  color: #7c3aed;
+  color: #666;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
 }
 
 .stat-value {
   font-size: 1.5rem;
   font-weight: bold;
-}
-
-.stat-box.time .stat-value {
-  color: #1d4ed8;
-}
-
-.stat-box.wpm .stat-value {
-  color: #047857;
-}
-
-.stat-box.accuracy .stat-value {
-  color: #6d28d9;
+  color: #2c3e50;
+  margin: 0;
 }
 
 .quote-display {
-  background-color: #f9fafb;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  margin-bottom: 1.5rem;
   font-size: 1.25rem;
-  line-height: 1.75;
-  color: #374151;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  min-height: 80px;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 2px solid #eee;
+}
+
+/* New typing validation styles */
+.quote-display span {
+  position: relative;
+}
+
+.quote-display .correct {
+  color: #27ae60;
+}
+
+.quote-display .incorrect {
+  color: #e74c3c;
+  text-decoration: underline wavy #e74c3c;
+}
+
+.quote-display .remaining {
+  color: #7f8c8d;
+}
+
+.quote-display .space {
+  margin-left: 4px;
 }
 
 .input-area {
@@ -1596,79 +1863,97 @@ i.fab.fa-github:hover {
 .typing-input {
   width: 100%;
   padding: 1rem;
-  font-size: 1rem;
-  border: 1px solid #d1d5db;
-  border-radius: 0.5rem;
-  resize: vertical;
-  min-height: 100px;
+  font-size: 1.1rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  resize: none;
+  height: 100px;
+  transition: border-color 0.3s;
 }
 
 .typing-input:focus {
   outline: none;
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  border-color: #3498db;
+}
+
+.typing-input.error {
+  border-color: #e74c3c;
+  animation: shake 0.5s;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
 }
 
 .controls {
   display: flex;
-  justify-content: center;
   gap: 1rem;
+  justify-content: center;
 }
 
 .btn {
-  padding: 0.5rem 1.5rem;
+  padding: 0.8rem 1.5rem;
   border: none;
-  border-radius: 0.5rem;
+  border-radius: 8px;
   font-size: 1rem;
-  font-weight: 500;
   cursor: pointer;
+  transition: transform 0.2s, opacity 0.2s;
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  transition: background-color 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0);
 }
 
 .btn-primary {
-  background-color: #2563eb;
+  background: #3498db;
   color: white;
-}
-
-.btn-primary:hover {
-  background-color: #1d4ed8;
 }
 
 .btn-secondary {
-  background-color: #4b5563;
+  background: #95a5a6;
   color: white;
 }
 
-.btn-secondary:hover {
-  background-color: #374151;
+.btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
 }
 
+/* Modal Styles */
 .modal-overlay {
   display: none;
   position: fixed;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
   align-items: center;
   justify-content: center;
+  z-index: 1000;
 }
 
 .modal {
   background: white;
   padding: 2rem;
-  border-radius: 0.5rem;
-  max-width: 28rem;
+  border-radius: 15px;
+  max-width: 500px;
   width: 90%;
-  margin: 1rem;
+  text-align: center;
 }
 
 .modal-title {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #1f2937;
-  margin-bottom: 1rem;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
 }
 
 .modal-content {
@@ -1676,45 +1961,40 @@ i.fab.fa-github:hover {
 }
 
 .result-item {
-  font-size: 1.125rem;
-  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  background: #f8f9fa;
+  border-radius: 8px;
 }
 
 .result-value {
   font-weight: bold;
-}
-
-.result-value.wpm {
-  color: #059669;
-}
-
-.result-value.accuracy {
-  color: #7c3aed;
+  color: #2c3e50;
 }
 
 .modal-btn {
-  width: 100%;
-  padding: 0.75rem;
-  background-color: #2563eb;
+  background: #3498db;
   color: white;
+  padding: 0.8rem 1.5rem;
   border: none;
-  border-radius: 0.5rem;
-  font-size: 1rem;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: background 0.3s;
 }
 
 .modal-btn:hover {
-  background-color: #1d4ed8;
+  background: #2980b9;
 }
 
-@media (max-width: 640px) {
-  .stats-container {
-      flex-direction: column;
-      gap: 1rem;
-  }
+/* Animation for high score */
+.highlight {
+  animation: highlight 1s;
+}
 
-  .game-title {
-      font-size: 2rem;
-  }
+@keyframes highlight {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
 }
